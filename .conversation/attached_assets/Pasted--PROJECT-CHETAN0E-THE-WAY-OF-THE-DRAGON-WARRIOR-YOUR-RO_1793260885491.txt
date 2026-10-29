@@ -1,0 +1,1693 @@
+# PROJECT: CHETAN0E — THE WAY OF THE DRAGON WARRIOR
+
+## YOUR ROLE
+
+Act as a world-class creative director, senior product designer, 3D environment artist, Three.js engineer, React architect, motion designer, and premium portfolio developer.
+
+You are responsible for building a complete, production-quality, highly interactive, fully responsive, 3D portfolio website for Chetan Rangari, professionally known as Chetan0e.
+
+Existing website: https://www.chetan0e.space/
+
+The website should be inspired by the complete Kung Fu Panda cinematic universe and tell a story through its visual design, environments, characters, transitions, interactions, and content.
+
+This is not a request to make an ordinary portfolio with a panda background.
+
+Build a cinematic, story-driven web experience in which visitors travel through the world of Kung Fu Panda while discovering the real engineering work, skills, achievements, and personality of Chetan Rangari.
+
+The website should feel like an interactive animated film combined with an award-winning 3D portfolio.
+
+The visual quality must reflect the work of an experienced professional UI/UX designer, cinematic environment artist, and creative frontend engineer.
+
+Do not rush into generic layouts or standard landing-page templates.
+
+Inspect the project files and existing website first. Understand the current structure before deciding what to replace. Preserve useful existing functionality where appropriate, but remove the old XERT INDUSTRIES identity entirely.
+
+Your responsibility is to implement the experience, including the frontend, 3D scenes, loading sequence, navigation, animations, responsive layouts, content, and working interactions.
+
+Do not stop after generating a plan or a few static mockups.
+
+---
+
+# 01. CENTRAL CREATIVE CONCEPT
+
+## "The Path to Mastery"
+
+The entire website tells the story of an engineer's journey toward mastery, using the world and storytelling language of Kung Fu Panda.
+
+At the beginning, the visitor knows nothing about the person behind the website.
+
+They enter through a circular opening, discover a beautiful mountain landscape, meet Po, and begin exploring the Valley of Peace.
+
+They gradually discover the creator's background, technical training, projects, accomplishments, and philosophy.
+
+The final scene takes place under a beautiful lantern-lit sky, where the visitor can contact Chetan.
+
+The website should communicate five ideas:
+
+1. Unlikely beginnings can lead to extraordinary things.
+2. Skills are developed through consistent practice.
+3. Great engineering involves solving difficult problems.
+4. Meaningful projects are more important than superficial claims.
+5. Mastery is a continuing journey rather than a destination.
+
+Use these ideas as the narrative foundation of the complete experience.
+
+Every section must feel like a new chapter of the same story.
+
+The result should be immersive, cinematic, technically impressive, and unmistakably personal.
+
+## Brand identity
+
+Use:
+
+CHETAN RANGARI
+
+CHETAN0E
+
+Portfolio domain: chetan0e.space
+
+Professional identity: Full-Stack Engineer / AI & ML Engineer / Software Builder.
+
+Do not use XERT INDUSTRIES, XERT, or any previous XERT-based branding anywhere in the new website.
+
+Remove old brand names from navigation, logos, metadata, loading screens, browser titles, footer content, and interface components.
+
+Create a fresh visual identity around Chetan0e.
+
+---
+
+# 02. DESIGN DIRECTION: FOLLOW THE REFERENCE WITHOUT COPYING IT
+
+The attached reference image establishes the desired first-impression quality.
+
+Study its composition and visual principles:
+
+* A cinematic atmospheric environment.
+* A spacious landscape.
+* Mist and distant trees.
+* Large expressive typography.
+* A large visual creature on one side.
+* Minimal navigation floating over the environment.
+* A small amount of supporting copy.
+* Generous negative space.
+* Strong visual asymmetry.
+* One prominent call to action.
+
+Use those principles to design an original Kung Fu Panda-inspired landing page.
+
+Do not reproduce the exact reference image, its typography arrangement, its creature, or its composition.
+
+Instead, develop a completely original composition using the Valley of Peace, distant mountains, bamboo forests, and a carefully placed 3D panda warrior.
+
+The result should feel art-directed rather than generated from a generic AI website template.
+
+Avoid the typical AI-generated design aesthetic: purple gradients, endless glassmorphism, repetitive rounded cards, meaningless floating orbs, giant blurred blobs, random animations, and identical layouts for every section.
+
+Every visual element must have a reason to exist.
+
+---
+
+# 03. VISUAL IDENTITY AND COLOR SYSTEM
+
+Create a cohesive visual system influenced by the atmospheric beauty of Kung Fu Panda.
+
+Primary palette:
+
+* Mist sage: #CBD4C4
+* Mountain fog: #E0E1D1
+* Warm ivory: #F7F2E8
+* Deep bamboo: #233E32
+* Jade green: #4C8766
+* Forest shadow: #19271F
+* Imperial gold: #D9B45E
+* Warm vermilion: #B94A37
+* Ink black: #151715
+* Stone gray: #777A70
+
+Use mist sage, warm ivory, and natural landscape tones for the hero.
+
+Use deeper bamboo greens, carved wood, dark stone, and jade for the Jade Palace and training environments.
+
+Use warm golden light and vermilion accents in important cinematic moments.
+
+Use the dark ink palette selectively for technical information panels and the loading sequence.
+
+The site should not remain uniformly black and gold as the previous design did.
+
+Let the environment determine the palette of each scene while preserving consistency through typography, materials, navigation, and interaction design.
+
+### Materials
+
+Build a material language inspired by:
+
+* Weathered stone.
+* Bamboo.
+* Lacquered wood.
+* Polished jade.
+* Worn parchment.
+* Traditional roof tiles.
+* Warm silk.
+* Antique gold.
+* Mist-covered mountain surfaces.
+
+Environmental surfaces should have enough texture and detail to feel believable.
+
+Avoid exaggerated reflections, plastic-looking surfaces, and excessive bloom.
+
+### Lighting
+
+Use cinematic lighting techniques:
+
+* Atmospheric perspective.
+* Soft volumetric sunlight.
+* Subtle shadows.
+* Natural ambient lighting.
+* Warm highlights on characters.
+* Light passing through bamboo.
+* Floating dust particles.
+* Mist around distant scenery.
+* Controlled highlights on jade objects.
+* Golden light during important transitions.
+
+Maintain strong legibility throughout.
+
+---
+
+# 04. OPENING EXPERIENCE — THE BLACK-AND-WHITE CIRCLE
+
+This is a mandatory feature.
+
+Before the visitor sees the landing page, create a striking opening sequence inspired by the circular black-and-white design language of a panda and the balance of yin and yang.
+
+Do not use a generic percentage loader with a spinning ring.
+
+The opening should feel like the beginning of a cinematic experience.
+
+## Scene A: Black screen
+
+The browser initially displays a completely black, full-viewport screen.
+
+At the center is a small circular mark composed of contrasting black and white forms.
+
+Design an original panda-inspired circular symbol.
+
+Its visual language may incorporate:
+
+* A black-and-white circular composition.
+* Subtle brushstroke textures.
+* Panda-eye-inspired geometry.
+* A balanced division between light and darkness.
+* A minimal central emblem.
+
+Do not imitate or reproduce the official Kung Fu Panda logo.
+
+The symbol should look refined and intentional.
+
+## Scene B: The circle opens
+
+Animate the central circle using a smooth, carefully choreographed expansion.
+
+The black-and-white symbol should appear to open from the center outward.
+
+Create a visually convincing transition using a circular mask, expanding radial reveal, or WebGL-based transition.
+
+The black-and-white forms should separate or rotate subtly as the circular opening expands.
+
+The effect should feel like entering a new world.
+
+Avoid a basic CSS spinner.
+
+## Scene C: Reveal the Valley of Peace
+
+As the circle expands, reveal the cinematic mountain environment underneath.
+
+The black screen transitions smoothly into misty mountain scenery.
+
+Distant mountain silhouettes appear first.
+
+The foreground bamboo and drifting mist become visible next.
+
+The Jade Palace emerges in the distance.
+
+Finally, Po appears in the hero composition.
+
+The transition should feel like a camera entering the world rather than simply removing a loading overlay.
+
+## Loading behavior
+
+Implement a real asset-loading state.
+
+Load only the minimum assets necessary for the opening and hero.
+
+Do not preload the entire website before allowing the visitor to continue.
+
+Requirements:
+
+* Show meaningful loading progress when measurable.
+* Do not fabricate a loading percentage.
+* Show an elegant fallback if a 3D asset fails.
+* Provide a Skip Intro button.
+* Respect the user's reduced-motion preference.
+* Store intro completion in sessionStorage so the full animation does not repeat unnecessarily during the same browsing session.
+* Do not delay access to the website merely to finish an animation.
+* Avoid leaving the visitor on a black screen if a model or network request fails.
+
+The animation should normally last approximately 2–4 seconds, depending on asset readiness.
+
+If assets have not loaded, allow the website to transition into a beautiful static or simplified hero rather than blocking the entire experience.
+
+The intro must work on desktop and mobile.
+
+---
+
+# 05. HERO SECTION — THE VALLEY OF PEACE
+
+## Narrative purpose
+
+The hero represents the beginning of Po's journey and the beginning of the visitor's journey through Chetan's engineering work.
+
+It should evoke curiosity, possibility, and ambition.
+
+## Environment
+
+Create a beautiful, expansive 3D landscape inspired by the Valley of Peace.
+
+The composition must include:
+
+* A wide mountain valley.
+* Layered mountain ranges.
+* Dense bamboo forests.
+* A winding river or stream.
+* Rocky terrain.
+* A waterfall in the distance.
+* A peaceful traditional village.
+* A staircase leading toward the Jade Palace.
+* Curved temple rooftops.
+* Soft morning mist.
+* Gentle sunlight.
+* Drifting peach blossoms.
+
+The Jade Palace should be recognizable in the distant environment without dominating the entire screen.
+
+Use multiple depth layers.
+
+Foreground bamboo should create a natural frame.
+
+The distant mountains should fade into atmospheric mist.
+
+The landscape must feel expansive, cinematic, and alive.
+
+Avoid a flat illustrated background or a static panoramic photograph masquerading as a 3D experience.
+
+## Main character: Po
+
+Place a high-quality 3D model of Po on the right side of the hero.
+
+Po is the main visual character and should be treated as an important part of the composition.
+
+Use a properly licensed model or an authorized asset supplied for the project. If no suitable model is available, create or source a polished original stylized panda warrior with a compatible visual style.
+
+Do not use a primitive cube, flat illustration, or poorly proportioned placeholder.
+
+The character should feature:
+
+* Recognizable panda proportions.
+* Detailed fur or carefully designed fur-like material.
+* A traditional martial-arts outfit.
+* Expressive eyes.
+* Natural posture.
+* Physically believable lighting.
+* A subtle idle animation.
+* Small head or body movements.
+* Natural character shadows.
+
+Where technically feasible, implement character animation using skeletal animation, GLTF animation clips, or another suitable 3D rigging workflow.
+
+Po should stand in a natural pose, perhaps holding a bamboo staff or preparing for a relaxed martial arts stance.
+
+He should feel like a character occupying the actual environment.
+
+Do not make the hero look like a 3D model pasted over a background.
+
+## Headline
+
+Place the main copy on the left.
+
+Use an expressive, bold, brush-inspired display face for selected words, combined with a clean sans-serif for professional information.
+
+The display typography should communicate personality while remaining easy to read.
+
+Suggested heading:
+
+"EVERY LEGEND
+STARTS
+SOMEWHERE."
+
+Supporting copy:
+
+"I'm Chetan Rangari — a full-stack and AI engineer building intelligent applications, useful software products, and ambitious ideas into reality."
+
+Show the identity:
+
+CHETAN RANGARI
+
+Small role label:
+
+AI & ML ENGINEER / FULL-STACK DEVELOPER
+
+Use gold or jade accents to emphasize important words.
+
+Avoid generic text such as "Welcome to my portfolio website."
+
+## Hero actions
+
+Primary button:
+
+"EXPLORE MY JOURNEY"
+
+Secondary button:
+
+"DISCOVER MY WORK"
+
+The first button should smoothly transition into the next environment.
+
+The second should navigate directly to the project showcase.
+
+Include a subtle scroll indicator.
+
+Use a compact navigation bar that blends into the landscape.
+
+The hero should feel spacious, visually balanced, and cinematic.
+
+Do not overload it with cards, badges, skill pills, or statistics.
+
+---
+
+# 06. NAVIGATION — THE JADE SEAL
+
+Create a refined navigation system that feels like part of the world.
+
+Keep it minimal and editorial.
+
+Navigation:
+
+HOME
+
+ABOUT
+
+SKILLS
+
+PROJECTS
+
+EXPERIENCE
+
+CONTACT
+
+Use a carefully designed CHETAN0E emblem.
+
+The emblem can combine an original circular panda-inspired mark, a simple ink-brush motif, or a minimalist jade seal.
+
+Do not use the previous XERT logo.
+
+At the top of the hero, the navigation can be light-colored over the misty environment.
+
+As visitors scroll into darker environments, transition the navigation to an appropriate readable treatment.
+
+Avoid harsh color changes.
+
+Use subtle borders, refined spacing, and smooth hover states.
+
+The active section should be indicated through a restrained gold or jade accent.
+
+On smaller screens, provide an elegant mobile navigation that remains easy to operate.
+
+Do not make the menu dependent on 3D interaction.
+
+---
+
+# 07. ABOUT SECTION — PO'S HUMBLE BEGINNINGS
+
+## Narrative
+
+The next chapter represents the beginning of the journey.
+
+In the Kung Fu Panda universe, Po starts with an ordinary life and an extraordinary ambition.
+
+Use this as a metaphor for learning, experimentation, and Chetan's engineering journey.
+
+## Environment
+
+Create a village scene inspired by the area surrounding Po's noodle shop.
+
+Include:
+
+* Traditional architecture.
+* Bamboo structures.
+* Warm lantern light.
+* A small outdoor seating area.
+* Stone pathways.
+* A misty mountain backdrop.
+* Carefully arranged environmental details.
+
+A noodle-shop-inspired environment can appear in the background, but the section must remain about the developer.
+
+If a character model is available, Po may be shown near the shop in an appropriate pose.
+
+The composition should be warm, approachable, and visually rich.
+
+## Content
+
+Section label:
+
+"CHAPTER 01 — THE BEGINNING"
+
+Heading:
+
+"Curiosity Was the Beginning."
+
+Use the following resume-based narrative:
+
+"I'm Chetan Rangari, a Computer Science Engineering student at D. Y. Patil College of Engineering and Technology, Kolhapur.
+
+I build full-stack applications, AI-powered platforms, and automation tools, working across frontend development, backend architecture, machine learning integrations, and deployment.
+
+I enjoy learning new technologies quickly and taking complex ideas from concept to working software."
+
+Present the text in an editorial layout with generous spacing.
+
+Use an environmental composition to balance the copy.
+
+## Personal information
+
+Include a small, elegant set of information panels:
+
+* Computer Science Engineering.
+* SGPA: 9.00.
+* Expected graduation: 2028.
+* Full-stack engineering.
+* AI and machine learning.
+* Product development.
+
+Use these details accurately.
+
+Do not invent a graduation date, degree, or qualification beyond the resume.
+
+Keep important personal details readable without excessive scrolling.
+
+---
+
+# 08. MASTER SHIFU'S TRAINING GROUNDS — SKILLS
+
+## Narrative
+
+This chapter represents practice, discipline, and learning.
+
+The visitor enters the Jade Palace training grounds and discovers Chetan's technical capabilities.
+
+## Environment
+
+Create a three-dimensional training courtyard.
+
+Include:
+
+* Traditional temple architecture.
+* Wooden training equipment.
+* Bamboo practice structures.
+* Stone flooring.
+* Jade ornaments.
+* Architectural depth.
+* Light mist.
+* Soft sunlight.
+* Atmospheric particles.
+
+Master Shifu should appear as a meaningful character within the scene.
+
+Use a high-quality authorized 3D model if available, with a suitable idle animation.
+
+He may occupy a small section of the environment and introduce the training philosophy.
+
+Do not let the character cover the skills interface.
+
+## Heading
+
+"CHAPTER 02 — THE TRAINING"
+
+"Mastery Comes Through Practice."
+
+Supporting copy:
+
+"Every tool is a skill to learn. Every difficult problem is another opportunity to improve."
+
+## Skill categories
+
+Use the exact skill information from Chetan's resume.
+
+### Programming languages
+
+Python, JavaScript, TypeScript, Dart, SQL.
+
+### Frontend engineering
+
+React.js, Next.js, Flutter, Tailwind CSS, HTML, CSS.
+
+### Backend engineering
+
+FastAPI, Node.js, Express.js, Flask, REST APIs, System Design, Authentication.
+
+### Databases
+
+MongoDB, Firebase, Firestore, MySQL.
+
+### AI and machine learning
+
+Machine Learning, LLMs, Prompt Engineering, RAG, AI Agents, Vector Databases, ChromaDB, FAISS.
+
+### Tools and infrastructure
+
+Git, GitHub, Docker, Vercel, Railway, Linux, Ollama, n8n, OpenRouter, Cloud Deployment.
+
+Do not silently add technologies that are not in the resume.
+
+## Interaction design
+
+Create five or six interactive training stations.
+
+When the visitor selects a station, the corresponding technologies appear as floating jade labels, engraved stones, carefully arranged artifacts, or clean technical panels.
+
+Use meaningful spatial movement rather than arbitrary spinning.
+
+A selection should reveal the category name and its skills clearly.
+
+The visitor should be able to use the interaction through mouse, keyboard, and touch.
+
+Do not assign invented numerical proficiency percentages.
+
+Do not create skill progress bars that imply unsupported measurements.
+
+The section must combine cinematic presentation with the readability of a professional technical skills page.
+
+---
+
+# 09. THE FURIOUS FIVE — ENGINEERING DISCIPLINES
+
+Create a visually impressive transition between the training grounds and the project gallery.
+
+Use the Furious Five as a storytelling reference for complementary disciplines working together.
+
+The five disciplines are:
+
+1. Full-Stack Engineering.
+2. AI and Machine Learning.
+3. Backend and System Design.
+4. Product Development.
+5. Experimentation and Research.
+
+These categories organize existing resume information; they should not imply qualifications that the resume does not support.
+
+Create an original circular or radial composition inspired by martial arts formations.
+
+Use five distinct, visually related 3D emblems or training stations.
+
+If appropriately licensed or authorized character models are available, the Furious Five may appear as background characters within the environment.
+
+Do not fill the interface with five oversized character renders.
+
+Maintain a strong visual hierarchy.
+
+Each discipline should be selectable.
+
+Selecting one reveals the corresponding skills or verified projects.
+
+Use restrained lighting, jade details, and sophisticated spatial composition.
+
+The layout should collapse into a clear and usable mobile arrangement.
+
+---
+
+# 10. PROJECTS — THE DRAGON SCROLL ARCHIVE
+
+This is the most important professional section of the website.
+
+The project's storytelling must never compromise its usefulness as a portfolio.
+
+## Environment
+
+Create a monumental archive within the Jade Palace.
+
+The space should feel ancient, mysterious, and beautifully designed.
+
+Include:
+
+* Tall wooden shelves.
+* Stone pillars.
+* Jade platforms.
+* Floating scrolls.
+* Carefully arranged lanterns.
+* Warm directional lighting.
+* Atmospheric dust.
+* Ornamental carved details.
+* Subtle reflections.
+* A central presentation area.
+
+The architecture should establish real perceived depth.
+
+Use parallax, perspective, and carefully choreographed camera movement to guide the visitor's attention.
+
+Do not use a uniform grid of generic dark cards floating over a background.
+
+## Heading
+
+"CHAPTER 03 — THE DRAGON SCROLLS"
+
+"Ideas Turned Into Reality."
+
+Supporting copy:
+
+"Every project starts with a problem worth solving. These are some of the ideas I've brought to life."
+
+## Actual projects
+
+Use the following five resume-documented projects as the primary project collection.
+
+### Project 01 — Intra AI
+
+Name: Intra AI
+
+Subtitle: Adaptive Workforce Intelligence Engine.
+
+Description:
+
+An AI-powered platform that analyzes resumes and job descriptions to generate personalized, explainable upskilling roadmaps.
+
+Implemented capabilities documented in the resume:
+
+* Skill-DNA profiling.
+* Graph-based dependency mapping.
+* Adaptive recommendations.
+* Docker-based containerization.
+* Production deployment.
+
+Technologies:
+
+FastAPI, Python, Next.js, Tailwind CSS, Docker, Machine Learning.
+
+Verified project link:
+
+https://intra-ai.vercel.app/
+
+Visual direction:
+
+A sophisticated floating intelligence artifact containing interconnected jade structures, an elegant graph-like formation, and subtle animated connections.
+
+Do not present the actual machine-learning architecture as a decorative fictional system. Keep the project description factual.
+
+### Project 02 — Musafir
+
+Name: Musafir
+
+Subtitle: AI Travel Planning Platform.
+
+Description:
+
+A full-stack AI travel platform designed to automate itinerary generation through a conversational travel assistant and AI place scanner.
+
+Resume-documented capabilities:
+
+* Conversational travel assistance.
+* AI place scanning.
+* JWT authentication.
+* REST APIs.
+* MongoDB backend.
+* Interactive maps.
+* PDF itinerary export.
+
+Technologies:
+
+React, Node.js, Express, MongoDB, Tailwind CSS.
+
+Verified project link:
+
+https://musafir-azure.vercel.app/
+
+Visual direction:
+
+A mountain-inspired travel artifact featuring an elegant floating map, miniature landscapes, a winding route, and carefully controlled warm lighting.
+
+The environment should suggest discovery and navigation without introducing misleading features.
+
+### Project 03 — Orbit
+
+Name: Orbit
+
+Subtitle: Private Study Accountability Platform.
+
+Description:
+
+A cross-platform mobile application enabling two-person study accountability through real-time presence synchronization and shared goal tracking.
+
+Resume-documented capabilities:
+
+* Real-time presence synchronization.
+* Shared goal tracking.
+* Productivity analytics.
+* Smart notifications.
+* Riverpod state management.
+* Firebase data streams.
+
+Technologies:
+
+Flutter, Firebase, Riverpod.
+
+Verified repository:
+
+https://github.com/Chetan0e/Orbit
+
+Visual direction:
+
+A beautifully balanced circular artifact representing two connected study partners, synchronized signals, shared goals, and consistent progress.
+
+Use an elegant circular composition rather than a generic glowing sphere.
+
+### Project 04 — Bloom AI
+
+Name: Bloom AI
+
+Subtitle: Interactive AI Learning Platform.
+
+Description:
+
+An AI-powered educational platform delivering gamified, adaptive learning experiences for AI and machine-learning concepts.
+
+Resume-documented capabilities:
+
+* Adaptive AI quizzes.
+* Difficulty adjustments based on learner performance.
+* AI mentor assistance.
+* Contextual learning guidance.
+
+Technologies:
+
+Next.js, TypeScript, Tailwind CSS, Firebase.
+
+Visual direction:
+
+An elegant peach-tree-inspired structure, representing growth and learning.
+
+Use subtle blossom movement, delicate branches, and carefully designed learning artifacts.
+
+Avoid an overly childish visual style.
+
+### Project 05 — Verath
+
+Name: Verath
+
+Subtitle: AI-Powered Personal Memory System.
+
+Description:
+
+An open-source AI memory system that captures, transcribes, and semantically retrieves personal data.
+
+Resume-documented capabilities:
+
+* Audio transcription using Whisper.
+* Semantic retrieval using ChromaDB.
+* FastAPI backend.
+* MongoDB integration.
+* Open-source contribution management.
+
+Technologies:
+
+FastAPI, MongoDB, ChromaDB, Whisper.
+
+Verified repository:
+
+https://github.com/Chetan0e/Verath
+
+Visual direction:
+
+An intricate archive of connected memory artifacts, carefully arranged scrolls, and meaningful relationships between stored information.
+
+Use a jade-and-stone interface to communicate organized knowledge and retrieval.
+
+## Existing website projects
+
+The current portfolio may also contain ARIS and other material not included in the attached resume.
+
+Inspect the existing project repository and available portfolio data before deciding whether additional projects should appear.
+
+Include additional projects only when sufficient verified information exists.
+
+Do not invent project functionality, technologies, descriptions, metrics, GitHub links, or deployment status.
+
+If a project is included but is still a concept or prototype, clearly identify it as such.
+
+## Project presentation
+
+Each project should appear as an individual three-dimensional artifact.
+
+The artifacts can be scrolls, jade tablets, miniature architectural scenes, or carefully designed environmental objects.
+
+Do not make them all look identical.
+
+Give each project its own restrained visual signature.
+
+When a visitor approaches or selects an artifact:
+
+* The artifact illuminates subtly.
+* The camera adjusts smoothly.
+* A short summary becomes visible.
+* The project name and technologies remain easy to read.
+* A clear action opens the project details.
+
+Use a refined interaction such as:
+
+"UNSEAL THIS SCROLL"
+
+Clicking an artifact should open a dedicated project-detail view.
+
+The detail view must include the actual project description, technologies, documented capabilities, and available links.
+
+Use a modal, drawer, or carefully implemented detail route based on the existing project architecture.
+
+The visitor must be able to return to the gallery without losing their place.
+
+Project links must work.
+
+Do not use dead buttons or fake loading animations.
+
+---
+
+# 11. EXPERIENCE — THE ASCENT TO THE JADE PALACE
+
+## Narrative
+
+This chapter represents growth through responsibility, collaboration, and consistent execution.
+
+The visitor sees how Chetan has contributed to technical communities and open-source projects.
+
+## Environment
+
+Create a cinematic ascent toward the Jade Palace.
+
+The environment should contain a long stone staircase, mountain cliffs, traditional architectural details, and atmospheric mist.
+
+Use the staircase as a metaphor for progress.
+
+Build a timeline along this path, with carefully positioned markers.
+
+The layout must remain readable.
+
+## Heading
+
+"CHAPTER 04 — THE JOURNEY"
+
+"Growth Is Built One Step at a Time."
+
+## Experience 01
+
+Role: Secretary, Coding Club — DYPCET
+
+Period: 2025–2026.
+
+Resume-documented details:
+
+* Promoted to Secretary within two months of joining based on leadership and execution performance.
+* Leads a technical community of more than 300 members.
+* Plans and runs coding challenges, hackathons, and technical events.
+* Designs project-based, industry-relevant learning initiatives.
+
+Present the leadership experience accurately.
+
+Use the 300+ community figure only in contexts supported by the resume.
+
+## Experience 02
+
+Role: Tech Team Member — Microsoft Learn Student Ambassadors.
+
+Period: 2025–2026.
+
+Resume-documented details:
+
+* Supports technical initiatives and events.
+* Contributes to student-facing developer programs and outreach.
+
+Do not invent additional responsibilities.
+
+## Experience 03
+
+Role: Project Admin — Verath.
+
+Organization: GirlScript Summer of Code.
+
+Period: Present, according to the resume.
+
+Resume-documented details:
+
+* Manages open-source contributions.
+* Reviews issues and pull requests.
+* Maintains contributor workflow quality.
+* Supports code quality within an active open-source codebase.
+
+Use this information exactly.
+
+## Timeline interaction
+
+Each milestone should be represented by a refined carved-stone marker or jade seal.
+
+Selecting a marker reveals its role, organization, period, and factual description.
+
+Use subtle environmental animation and sophisticated typography.
+
+Avoid exaggerated animations that make the experience difficult to navigate.
+
+---
+
+# 12. INNER PEACE — WISDOM AND ENGINEERING PHILOSOPHY
+
+Create a quiet, atmospheric chapter inspired by Master Oogway and the Sacred Peach Tree.
+
+This section provides an emotional pause after the more technical areas of the website.
+
+## Environment
+
+Create a beautiful three-dimensional peach tree on a stone platform.
+
+Include:
+
+* Sculptural branches.
+* Warm sunlight.
+* Slowly falling peach blossoms.
+* Distant mountains.
+* Atmospheric fog.
+* Gentle shadows.
+* Subtle environmental particles.
+
+The visual atmosphere should communicate thoughtfulness and calm.
+
+If a Master Oogway model is available through authorized assets, position him naturally beneath the tree or beside the stone platform.
+
+Do not turn the character into a decorative statue obstructing the text.
+
+## Heading
+
+"INNER PEACE. OUTER INNOVATION."
+
+Supporting copy:
+
+"I believe the best engineering begins with curiosity, grows through experimentation, and becomes meaningful when it solves real problems."
+
+Display three principles.
+
+### Stay Curious
+
+Explore technologies, ask difficult questions, and continue learning.
+
+### Build With Purpose
+
+Create practical software that solves real problems.
+
+### Improve Through Practice
+
+Use experimentation, feedback, and iteration to develop better solutions.
+
+Keep these principles concise and elegant.
+
+Use this section to express a philosophy of engineering without inventing personal quotations or attributing the text to a movie character.
+
+---
+
+# 13. THE CHALLENGES — FROM OBSTACLES TO SOLUTIONS
+
+Use the visual language of Kung Fu Panda's antagonists as a subtle metaphor for difficult engineering problems.
+
+This must not become a villain gallery or a violent fighting game.
+
+Instead, use the contrast between shadow and light to communicate the challenge-solving process.
+
+The visual references may draw from the dramatic presence of Tai Lung, Lord Shen, Kai, and the Chameleon.
+
+Use appropriate authorized character assets where available, or create original silhouettes and environmental motifs inspired by the franchise's visual language.
+
+Do not copy film scenes or reproduce cinematic sequences.
+
+The section should emphasize engineering challenges rather than fictional combat.
+
+## Heading
+
+"EVERY CHALLENGE HAS A WAY THROUGH."
+
+Create three visual stages:
+
+**The Problem**
+
+Introduce the real problem a selected project is designed to solve.
+
+**The Approach**
+
+Explain the actual technical decisions, architecture, and implementation when documented.
+
+**The Outcome**
+
+Show the real result, working application, repository, or demonstrated functionality.
+
+Allow this presentation to open from individual projects.
+
+Do not fabricate project metrics or claim measured outcomes without evidence.
+
+The purpose is to demonstrate problem-solving and engineering thinking.
+
+---
+
+# 14. EDUCATION AND ACHIEVEMENTS
+
+Create a compact section integrated into the broader journey rather than an unrelated collection of badges.
+
+Use a beautifully designed temple archive or a quiet Jade Palace interior.
+
+Display the following verified resume information.
+
+### Education
+
+B.Tech in Computer Science Engineering.
+
+D. Y. Patil College of Engineering and Technology, Kolhapur.
+
+SGPA: 9.00.
+
+Expected graduation: 2028.
+
+### Certification
+
+Completed Google Cloud Gen AI Academy 2.0.
+
+Focus: Generative AI, LLMs, AI/ML.
+
+### Open-source leadership
+
+Resume-documented GSSoC roles:
+
+* Mentor.
+* Project Admin.
+* Contributor.
+* Ambassador.
+
+Display the roles accurately.
+
+Do not create fake certificate images or invent certification IDs.
+
+If the actual certificate asset is unavailable, use a carefully designed typographic credential card instead.
+
+This section should look premium but remain subordinate to the project showcase.
+
+---
+
+# 15. CONTACT — THE LANTERN FESTIVAL
+
+The final chapter is the emotional conclusion of the experience.
+
+Visitors should feel that they have completed a meaningful journey through the Valley of Peace and discovered the person behind the engineering work.
+
+## Environment
+
+Create a cinematic nighttime environment inspired by the Valley of Peace.
+
+Include:
+
+* Traditional village architecture.
+* The Jade Palace in the distance.
+* Floating lanterns.
+* A peaceful river or reflective water surface.
+* Dark mountain silhouettes.
+* Warm crimson and gold lighting.
+* Gentle peach blossoms.
+* Carefully controlled atmospheric fog.
+* A beautiful twilight sky.
+
+Use subtle lighting transitions to create a sense of conclusion.
+
+The scene should be visually rich while keeping the contact interface accessible.
+
+## Heading
+
+"EVERY GREAT JOURNEY STARTS WITH A CONVERSATION."
+
+Supporting copy:
+
+"Have an interesting problem, an ambitious idea, or a project worth building? Let's create something meaningful together."
+
+## Actual contact details
+
+Use these details from my resume.
+
+Email:
+
+[chetanrangari0e52@gmail.com](mailto:chetanrangari0e52@gmail.com)
+
+Phone:
+
++91 9322134721
+
+Portfolio:
+
+https://www.chetan0e.space/
+
+GitHub:
+
+https://github.com/Chetan0e
+
+LinkedIn:
+
+https://linkedin.com/in/chetan-rangari-97342832b
+
+Keep the email address clickable.
+
+Use an appropriate telephone link for the phone number.
+
+Ensure the social links open the correct destinations.
+
+Do not replace these details with sample information.
+
+## Contact interface
+
+Design an elegant form containing:
+
+* Name.
+* Email.
+* Subject.
+* Message.
+
+Use beautiful typography and minimal borders.
+
+The form should feel integrated into the lantern-lit environment.
+
+Implement real validation.
+
+Provide clear success and error states.
+
+Do not claim that a message has been sent if no submission has taken place.
+
+If there is no existing backend, implement a reasonable functional approach using a configurable contact endpoint or a mailto-based fallback.
+
+Keep the contact functionality separate from the decorative 3D scene.
+
+Add a prominent action:
+
+"LET'S BUILD SOMETHING"
+
+The contact section should provide the visitor with a clear next step.
+
+---
+
+# 16. THE 3D CHARACTER SYSTEM
+
+3D characters are a core component of this experience.
+
+Do not use only static PNGs of characters.
+
+Use animated 3D models wherever suitable, authorized assets are available.
+
+The important characters include:
+
+* Po.
+* Master Shifu.
+* Master Oogway.
+* Tigress.
+* Monkey.
+* Crane.
+* Viper.
+* Mantis.
+
+Supporting characters may include Mr. Ping, Li Shan, and Zhen where their presence contributes to the story.
+
+Characters associated with the major antagonist arcs may be used sparingly for visual storytelling.
+
+Do not attempt to place every character in every section.
+
+Each character must have a clear role within the narrative.
+
+Po is the primary companion throughout the website.
+
+Shifu belongs naturally in training-related scenes.
+
+Oogway belongs naturally in the wisdom and inner-peace chapter.
+
+The Furious Five belong naturally in the training and teamwork sequences.
+
+Other characters should appear only when their presence contributes meaningfully to the relevant scene.
+
+### Character requirements
+
+Use high-quality GLB or GLTF models where suitable.
+
+Preserve model proportions and materials.
+
+Use appropriate animation clips for idle movement, walking, or martial arts poses when available.
+
+Avoid unnatural model deformation.
+
+Avoid excessive polygon counts and expensive real-time fur simulation on mobile devices.
+
+Do not allow characters to obstruct important headings or buttons.
+
+Use proper shadows and lighting so that the characters feel integrated into their surroundings.
+
+The characters must be positioned and scaled according to the camera, environment, and viewport.
+
+### Asset integrity
+
+Use user-provided, authorized, or appropriately licensed 3D models.
+
+Do not download ripped assets from movie files or games.
+
+Do not scrape and republish unauthorized film footage or soundtrack files.
+
+Maintain an asset manifest with the source, creator, license, and attribution requirements for each external model.
+
+If a suitable character model is unavailable, create or source a high-quality original stylized alternative and keep the scene structure ready for a future model replacement.
+
+Do not silently replace missing character models with cubes or primitive geometric placeholders.
+
+A carefully designed original character is preferable to an obviously broken or low-quality 3D asset.
+
+---
+
+# 17. TECHNICAL IMPLEMENTATION
+
+The website must be genuinely interactive and three-dimensional.
+
+Do not approximate the entire experience using flat CSS gradients.
+
+Inspect the existing repository first and reuse working components, project links, and configuration where appropriate.
+
+Use the existing framework if it is suitable.
+
+For a new implementation, the preferred architecture is:
+
+* React.
+* TypeScript.
+* Three.js.
+* React Three Fiber.
+* Drei.
+* GSAP for cinematic sequencing and scroll-triggered scenes.
+* Framer Motion for interface interactions.
+* Tailwind CSS or the existing styling system.
+* GLTF/GLB for optimized 3D models.
+
+Use these technologies where appropriate rather than adding every dependency unnecessarily.
+
+### 3D architecture
+
+Build reusable components.
+
+Suggested structure:
+
+* App.
+* IntroLoader.
+* SiteNavigation.
+* HeroScene.
+* ValleyEnvironment.
+* CharacterController.
+* AboutSection.
+* TrainingScene.
+* SkillExplorer.
+* ProjectArchiveScene.
+* ProjectDetailView.
+* ExperienceTimeline.
+* WisdomScene.
+* ContactScene.
+* ContactForm.
+* Footer.
+
+Separate the 3D environment from the main content and interface.
+
+Use a shared scene configuration for lights, rendering settings, and reusable environmental objects.
+
+Load large assets only when needed.
+
+Keep personal content in a maintainable data structure rather than scattering project text throughout components.
+
+### Animation
+
+Use GSAP for carefully controlled sequences and scroll-triggered transitions where appropriate.
+
+Use React state for interaction logic.
+
+Avoid repeatedly triggering heavy 3D animations during every render.
+
+Use efficient event handling.
+
+Avoid blocking the browser's main thread with expensive calculations.
+
+### Scroll behavior
+
+Scrolling should gradually advance the story.
+
+Implement controlled transitions between scenes without trapping the browser's native scrolling behavior.
+
+Use natural easing and meaningful camera movement.
+
+Do not force visitors to scroll through a long animation before accessing the actual portfolio.
+
+Support direct navigation to project sections.
+
+Support browser back and forward navigation when detail views use routes.
+
+---
+
+# 18. PERFORMANCE REQUIREMENTS
+
+A highly detailed 3D site is only successful if it remains usable.
+
+Implement the following performance principles:
+
+* Optimize GLB/GLTF assets.
+* Use compressed textures where appropriate.
+* Limit the number of expensive real-time lights.
+* Avoid excessive transparent layers.
+* Keep particle counts under control.
+* Reuse geometry and materials where possible.
+* Lazy-load below-the-fold scenes.
+* Avoid mounting every 3D environment simultaneously.
+* Use instancing for repeated environmental objects when appropriate.
+* Avoid unnecessary React re-renders.
+* Use efficient scroll observers.
+* Stop or reduce offscreen animation when appropriate.
+* Use appropriately sized textures for mobile.
+* Avoid unnecessary physics simulations.
+* Provide loading states and failure fallbacks.
+
+Do not begin by loading every character and every scene.
+
+Prioritize the circular intro and hero assets.
+
+Load subsequent environments only when they are approaching visibility.
+
+The website should remain responsive on ordinary laptops and mid-range mobile devices.
+
+The user must still be able to access the portfolio when full WebGL rendering is unavailable.
+
+---
+
+# 19. RESPONSIVE DESIGN
+
+Design the site for desktop, tablet, and mobile.
+
+Do not simply scale down the desktop layout.
+
+### Desktop
+
+Deliver the complete cinematic experience with spatial depth, panoramic scenery, detailed character models, and carefully controlled camera movement.
+
+### Tablet
+
+Simplify the scenery where necessary while maintaining the same visual identity.
+
+### Mobile
+
+Create a deliberately art-directed experience.
+
+Keep the main headline prominent.
+
+Show Po at a suitable scale.
+
+Use a simpler camera.
+
+Reduce particle density.
+
+Limit the number of simultaneously rendered 3D elements.
+
+Keep navigation compact.
+
+Display projects as an accessible vertical sequence.
+
+Simplify the interactive skill environment.
+
+Keep all buttons easy to tap.
+
+Make text comfortably readable.
+
+Avoid horizontal overflow.
+
+Preserve access to the actual contact links.
+
+Do not make the mobile version depend on complex hover behavior.
+
+On mobile, replace heavy environmental animation with carefully designed fallbacks where necessary.
+
+---
+
+# 20. ACCESSIBILITY AND USER CONTROL
+
+Implement:
+
+* Keyboard-accessible navigation.
+* Visible focus states.
+* Descriptive button labels.
+* Readable color contrast.
+* Reduced-motion support.
+* An intro skip control.
+* Meaningful loading feedback.
+* Screen-reader-accessible content.
+* Responsive form labels.
+* Accessible project navigation.
+* Appropriate error messages.
+
+Respect the operating system's reduced-motion setting.
+
+When reduced motion is enabled, replace aggressive camera movements and lengthy transitions with simple, elegant fades.
+
+Never require sound to understand the content.
+
+Never autoplay loud audio.
+
+If ambient sound is included, make it optional, muted by default, and controllable.
+
+The website must remain understandable and usable without the 3D experience.
+
+---
+
+# 21. SEO AND PROFESSIONAL DETAILS
+
+Use a professional page title:
+
+Chetan Rangari | Full-Stack & AI/ML Engineer
+
+Use a concise description that communicates software engineering, AI/ML, and portfolio projects.
+
+Add appropriate Open Graph metadata.
+
+Use the existing domain:
+
+https://www.chetan0e.space/
+
+Add a proper favicon based on the new Chetan0e visual identity.
+
+Do not use the official Kung Fu Panda logo as the site's identity.
+
+Preserve accurate page metadata and canonical URLs.
+
+Ensure external links work correctly.
+
+Ensure the website is suitable for sharing with recruiters, collaborators, engineers, and potential employers.
+
+The design can be cinematic and playful, but the professional content must remain easy to discover.
+
+---
+
+# 22. FUNCTIONAL REQUIREMENTS
+
+Every visible control must work.
+
+The implementation must include:
+
+* Working navigation.
+* Working scroll transitions.
+* Intro animation and skip functionality.
+* Project selection.
+* Project-detail opening and closing.
+* Functional GitHub links.
+* Functional live project links.
+* Skill-category selection.
+* Timeline information.
+* Contact links.
+* Resume-download functionality when the real PDF is available.
+* Responsive mobile navigation.
+* Reduced-motion behavior.
+* Loading and error states.
+
+Do not leave placeholder buttons.
+
+Do not fabricate a successful form submission.
+
+Do not create fake statistics.
+
+Do not create fake project screenshots.
+
+Do not include lorem ipsum.
+
+Do not introduce projects that are not supported by the available content.
+
+If an original feature cannot be implemented without unavailable credentials or external services, clearly isolate the missing configuration and provide a useful fallback.
+
+The application must not depend on secret API keys for the portfolio's essential functionality.
+
+---
+
+# 23. CONTENT ACCURACY
+
+Use the uploaded resume and existing portfolio content as the source of truth.
+
+Preserve these real project names:
+
+* Intra AI.
+* Musafir.
+* Orbit.
+* Bloom AI.
+* Verath.
+
+Inspect the existing website or repository before deciding whether ARIS or additional projects should be included.
+
+Use the actual technology stacks and descriptions specified in the resume.
+
+Preserve these professional experiences:
+
+* Secretary, Coding Club — DYPCET.
+* Tech Team Member, Microsoft Learn Student Ambassadors.
+* Project Admin, Verath — GirlScript Summer of Code.
+
+Preserve the education and achievement details.
+
+Use SGPA 9.00 and the expected graduation year of 2028.
+
+The existing resume documents the Google Cloud Gen AI Academy 2.0 and GSSoC leadership roles.
+
+Do not fabricate other qualifications.
+
+The website is allowed to tell a fictionalized visual story about the journey toward mastery, but the developer's professional information must remain factual.
+
+The metaphor belongs to the presentation, not to claims about credentials or achievements.
+
+---
+
+# 24. FINAL EXECUTION PLAN
+
+Work systematically.
+
+### Phase 1 — Audit
+
+Inspect the repository, existing routes, dependencies, assets, deployment configuration, current project data, and the live portfolio's content.
+
+Identify reusable components and remove the old XERT-based visual identity.
+
+### Phase 2 — Design system
+
+Implement the new typography, colors, spacing, navigation, section compositions, and responsive layout.
+
+Establish a consistent design language before producing complex scenes.
+
+### Phase 3 — Intro and hero
+
+Implement the opening circular animation, the first asset-loading sequence, and the complete Valley of Peace hero.
+
+Establish the final quality standard here before expanding the experience.
+
+### Phase 4 — Story environments
+
+Build the village, training grounds, Jade Palace archive, experience timeline, wisdom scene, and Lantern Festival.
+
+Keep each environment separate and load it only when needed.
+
+### Phase 5 — Portfolio functionality
+
+Integrate the real projects, professional information, technical skills, experience, contact details, and working links.
+
+### Phase 6 — 3D integration
+
+Add appropriate character models, scene lighting, camera movement, character animations, and interactions.
+
+### Phase 7 — Optimization
+
+Test responsive layouts, asset loading, WebGL behavior, reduced motion, keyboard interactions, and mobile performance.
+
+### Phase 8 — Verification
+
+Run the development server.
+
+Check for broken routes, runtime errors, missing assets, failed links, TypeScript errors, and console warnings.
+
+Verify all visible controls.
+
+Test the website at desktop, tablet, and mobile sizes.
+
+Fix the issues found rather than merely documenting them.
+
+Continue refining the experience until the site is coherent, functional, and visually polished.
+
+---
+
+# 25. DEFINITION OF DONE
+
+The project is complete only when:
+
+1. The opening screen contains the original black-and-white circular opening animation.
+2. The animation transitions naturally into the Valley of Peace.
+3. The hero contains a carefully integrated 3D panda character.
+4. The website tells a connected story inspired by Kung Fu Panda.
+5. The actual developer portfolio content is present.
+6. The projects have correct descriptions and working links.
+7. Skills and experience match the resume.
+8. All XERT branding has been removed.
+9. The major environments have meaningful three-dimensional depth.
+10. The website has an intentionally designed mobile experience.
+11. The major controls work.
+12. The contact information is correct.
+13. Reduced-motion and asset-loading fallbacks work.
+14. The website remains usable without WebGL.
+15. No fictional achievements, fake project data, or placeholder buttons remain.
+16. The website has been tested in the running application.
+
+Do not declare completion simply because the page compiles.
+
+Verify the actual experience in a browser.
+
+The final result should feel like the work of an elite creative developer and an experienced UI/UX design studio.
+
+---
+
+# FINAL CREATIVE DIRECTION
+
+Build a website that begins with darkness, opens through a black-and-white circular seal, and reveals a breathtaking mountain landscape.
+
+Let the visitor enter the Valley of Peace.
+
+Let Po guide them toward the Jade Palace.
+
+Let Master Shifu introduce the training grounds.
+
+Let the Dragon Scroll Archive reveal Chetan's engineering projects.
+
+Let the journey through experience and wisdom establish the person behind the work.
+
+Let the Lantern Festival conclude the story with an invitation to collaborate.
+
+Every chapter must have its own environment, emotional tone, lighting, and interaction.
+
+The website must be visually adventurous without sacrificing professional credibility.
+
+Do not make a generic AI-generated portfolio.
+
+Do not create a static movie-themed landing page.
+
+Do not replace the entire experience with a collection of disconnected 3D objects.
+
+Create one coherent, interactive world.
+
+**THE VALLEY OF PEACE IS THE SETTING.**
+
+**THE DRAGON SCROLLS ARE THE PROJECTS.**
+
+**THE JADE PALACE IS THE TRAINING GROUND.**
+
+**THE JOURNEY IS THE STORY.**
+
+**CHETAN RANGARI IS THE ENGINEER BEHIND IT.**

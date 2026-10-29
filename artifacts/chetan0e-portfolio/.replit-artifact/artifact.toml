@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Chetan0e Portfolio"
+description = "A cinematic, story-driven portfolio for Chetan Rangari, presenting his verified engineering projects, skills, experience, education, and contact details through an interactive martial-arts fantasy journey."
+version = "1.0.0"
+id = "artifacts/chetan0e-portfolio"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19892
+
+[services.development]
+run = "pnpm --filter @workspace/chetan0e-portfolio run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/chetan0e-portfolio", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/chetan0e-portfolio/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19892"
+BASE_PATH = "/"
