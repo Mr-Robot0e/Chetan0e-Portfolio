@@ -1,9 +1,8 @@
-import { lazy, Suspense, useEffect, useState, type FormEvent } from 'react';
+import { useEffect, useState, type FormEvent, type ReactNode } from 'react';
 import { ArrowDown, ArrowRight, ArrowUpRight, Menu, X } from 'lucide-react';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Route, Switch, Router as WouterRouter } from 'wouter';
-
-const HeroPanda = lazy(() => import('./components/hero-panda'));
-const JourneyWorld = lazy(() => import('./components/journey-world'));
+import ChapterBackdrop from './components/chapter-backdrop';
 
 type Project = {
   name: string;
@@ -84,6 +83,21 @@ const disciplines = [
   { title: 'Experimentation & Research', detail: 'Learning new tools quickly, testing ideas, and improving through deliberate experimentation.' },
 ];
 
+function StoryReveal({ children, className, delay = 0 }: { children: ReactNode; className?: string; delay?: number }) {
+  const reduceMotion = useReducedMotion();
+  return (
+    <motion.div
+      className={className}
+      initial={reduceMotion ? false : { opacity: 0, y: 22 }}
+      whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.16 }}
+      transition={{ duration: 0.72, delay, ease: [0.2, 0.75, 0.25, 1] }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
 function Intro({ onSkip }: { onSkip: () => void }) {
   return (
     <div className="intro" role="status" aria-label="Opening Chetan0e portfolio">
@@ -100,35 +114,17 @@ function Site() {
   const [introVisible, setIntroVisible] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [reducedMotion, setReducedMotion] = useState(false);
-  const [webglAvailable, setWebglAvailable] = useState(false);
   const [active, setActive] = useState('home');
   const [selectedSkill, setSelectedSkill] = useState(0);
   const [selectedDiscipline, setSelectedDiscipline] = useState(0);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
   const [selectedExperience, setSelectedExperience] = useState(0);
-  const [heroVisible, setHeroVisible] = useState(true);
-  const [activeScene, setActiveScene] = useState('about');
   const [formStatus, setFormStatus] = useState('');
+  const [heroVideoFailed, setHeroVideoFailed] = useState(false);
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
-    try {
-      const probe = document.createElement('canvas');
-      const context = (probe.getContext('webgl2') || probe.getContext('webgl') || probe.getContext('experimental-webgl')) as WebGLRenderingContext | WebGL2RenderingContext | null;
-      setWebglAvailable(Boolean(context));
-      context?.getExtension('WEBGL_lose_context')?.loseContext();
-    } catch {
-      setWebglAvailable(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setReducedMotion(media.matches);
-    const onPreferenceChange = (event: MediaQueryListEvent) => setReducedMotion(event.matches);
-    media.addEventListener('change', onPreferenceChange);
-    const reduced = media.matches;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let seen = false;
     try { seen = sessionStorage.getItem('chetan0e-intro-seen') === '1'; } catch { /* storage can be unavailable */ }
     const previewingPastIntro = new URLSearchParams(window.location.search).get('skipIntro') === '1';
@@ -140,33 +136,26 @@ function Site() {
       }, 2100);
       return () => {
         window.clearTimeout(timer);
-        media.removeEventListener('change', onPreferenceChange);
       };
     }
-    return () => media.removeEventListener('change', onPreferenceChange);
+    return undefined;
   }, []);
 
   useEffect(() => {
     const updateScroll = () => setScrolled(window.scrollY > 35);
     updateScroll();
     window.addEventListener('scroll', updateScroll, { passive: true });
-    const targets = Array.from(document.querySelectorAll<HTMLElement>('[data-scene]'));
+    const targets = navItems.map(([, id]) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
-        const scene = (entry.target as HTMLElement).dataset.scene;
-        if (scene) setActiveScene(scene);
-        if (navItems.some(([, id]) => id === entry.target.id)) setActive(entry.target.id);
+        setActive(entry.target.id);
       });
     }, { rootMargin: '-35% 0px -45% 0px' });
     targets.forEach((target) => observer.observe(target));
-    const hero = document.getElementById('home');
-    const heroObserver = new IntersectionObserver(([entry]) => setHeroVisible(entry.isIntersecting), { threshold: 0.12 });
-    if (hero) heroObserver.observe(hero);
     return () => {
       window.removeEventListener('scroll', updateScroll);
       observer.disconnect();
-      heroObserver.disconnect();
     };
   }, []);
 
@@ -186,22 +175,7 @@ function Site() {
     try { sessionStorage.setItem('chetan0e-intro-seen', '1'); } catch { /* storage is optional */ }
   };
   const closeMenu = () => setMenuOpen(false);
-  const openProject = (project: Project, index: number) => {
-    setSelectedProject(project);
-    setSelectedProjectIndex(index);
-  };
-  const worldProps = {
-    chapter: activeScene,
-    reducedMotion,
-    selectedSkill,
-    selectedDiscipline,
-    selectedExperience,
-    selectedProject: selectedProjectIndex,
-    onSkillSelect: setSelectedSkill,
-    onDisciplineSelect: setSelectedDiscipline,
-    onExperienceSelect: setSelectedExperience,
-    onProjectSelect: (index: number) => openProject(projects[index], index),
-  };
+  const openProject = (project: Project) => setSelectedProject(project);
   const submitContact = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -220,9 +194,6 @@ function Site() {
 
   return (
     <main className="portfolio">
-      <Suspense fallback={null}>
-        {webglAvailable && !heroVisible && <JourneyWorld {...worldProps} />}
-      </Suspense>
       {introVisible && <Intro onSkip={skipIntro} />}
       <header className={`topbar${scrolled ? ' scrolled' : ''}`}>
         <a className="brand" href="#home" onClick={closeMenu} aria-label="Chetan0e home" data-testid="link-home">
@@ -237,13 +208,15 @@ function Site() {
       </header>
 
       <section className="hero" id="home" data-scene="home" aria-label="Chetan Rangari portfolio introduction" onPointerMove={(event) => {
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || event.pointerType === 'touch') return;
+        if (reduceMotion || event.pointerType === 'touch') return;
         const box = event.currentTarget.getBoundingClientRect();
         event.currentTarget.style.setProperty('--tilt-x', `${(event.clientX - box.left - box.width / 2) / box.width * -12}px`);
         event.currentTarget.style.setProperty('--tilt-y', `${(event.clientY - box.top - box.height / 2) / box.height * -8}px`);
       }}>
         <div className="hero-art" aria-hidden="true" />
-        <Suspense fallback={null}>{webglAvailable && heroVisible && <HeroPanda reducedMotion={reducedMotion} />}</Suspense>
+        {!reduceMotion && !heroVideoFailed && <video className="hero-video" autoPlay muted loop playsInline preload="metadata" poster="/media/valley-hero.jpg" aria-hidden="true" onError={() => setHeroVideoFailed(true)}>
+          <source src="/media/valley-loop.mp4" type="video/mp4" />
+        </video>}
         <div className="hero-foreground" aria-hidden="true">
           <svg viewBox="0 0 1440 500" preserveAspectRatio="none">
             <g fill="none" stroke="#19271f" strokeLinecap="round">
@@ -253,7 +226,7 @@ function Site() {
             </g>
           </svg>
         </div>
-        <div className="hero-inner">
+        <StoryReveal className="hero-inner">
           <div className="eyebrow">A path to mastery · software &amp; AI</div>
           <h1>Every legend<br />starts <em>somewhere.</em></h1>
           <p className="hero-copy">I'm Chetan Rangari — a full-stack and AI engineer building intelligent applications, useful software products, and ambitious ideas into reality.</p>
@@ -262,13 +235,14 @@ function Site() {
             <a className="button primary" href="#about" data-testid="button-explore">Explore my journey <ArrowDown size={14} /></a>
             <a className="button" href="#projects" data-testid="button-discover">Discover my work <ArrowUpRight size={14} /></a>
           </div>
-        </div>
+        </StoryReveal>
         <div className="scroll-cue">Scroll to begin</div>
         <div className="hero-note">Valley of Peace · Chapter zero</div>
       </section>
 
       <section className="chapter about" id="about" data-scene="about">
-        <div className="chapter-inner about-layout">
+        <ChapterBackdrop kind="village" reducedMotion={Boolean(reduceMotion)} />
+        <StoryReveal className="chapter-inner about-layout">
           <div>
             <div className="chapter-no">Chapter 01 — The beginning</div>
             <h2>Curiosity was<br />the beginning.</h2>
@@ -284,11 +258,12 @@ function Site() {
               <div className="fact"><strong>Building</strong><span>Full-stack · AI / ML · products</span></div>
             </div>
           </aside>
-        </div>
+        </StoryReveal>
       </section>
 
       <section className="chapter skills" id="skills" data-scene="skills">
-        <div className="chapter-inner">
+        <ChapterBackdrop kind="training" reducedMotion={Boolean(reduceMotion)} />
+        <StoryReveal className="chapter-inner">
           <div className="chapter-no">Chapter 02 — The training</div>
           <h2>Mastery comes<br />through practice.</h2>
           <p className="chapter-intro">Every tool is a skill to learn. Every difficult problem is another opportunity to improve. Choose a station to see the tools in the kit.</p>
@@ -302,28 +277,30 @@ function Site() {
               <div className="skill-note">A working toolkit — no invented proficiency scores.</div>
             </div>
           </div>
-        </div>
+        </StoryReveal>
       </section>
 
       <section className="chapter disciplines" id="disciplines" data-scene="disciplines" aria-label="Engineering disciplines">
-        <div className="chapter-inner">
+        <ChapterBackdrop kind="disciplines" reducedMotion={Boolean(reduceMotion)} />
+        <StoryReveal className="chapter-inner">
           <div className="chapter-no">The disciplines · one practice</div>
           <h2 style={{ fontSize: 'clamp(34px,5vw,58px)' }}>Different paths. Shared purpose.</h2>
           <div className="discipline-row" role="tablist" aria-label="Engineering disciplines">
             {disciplines.map((discipline, index) => <button key={discipline.title} className={`discipline${selectedDiscipline === index ? ' selected' : ''}`} aria-selected={selectedDiscipline === index} role="tab" onClick={() => setSelectedDiscipline(index)} data-testid={`tab-discipline-${index + 1}`}><span className="discipline-num">0{index + 1}</span><strong>{discipline.title}</strong></button>)}
           </div>
           <p className="discipline-detail" role="tabpanel">{disciplines[selectedDiscipline].detail}</p>
-        </div>
+        </StoryReveal>
       </section>
 
       <section className="chapter projects" id="projects" data-scene="projects">
-        <div className="chapter-inner">
+        <ChapterBackdrop kind="archive" reducedMotion={Boolean(reduceMotion)} />
+        <StoryReveal className="chapter-inner">
           <div className="chapter-no">Chapter 03 — The Dragon Scrolls</div>
           <h2>Ideas turned<br />into reality.</h2>
           <p className="chapter-intro">Every project starts with a problem worth solving. These are some of the ideas I've brought to life.</p>
           <div className="project-list">
             {projects.map((project, index) => (
-              <article className="project-row" key={project.name} onClick={() => openProject(project, index)} onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openProject(project, index); } }} tabIndex={0} role="button" aria-label={`Open ${project.name} project details`} data-testid={`card-project-${project.name.toLowerCase().replace(/\s/g, '-')}`}>
+              <article className="project-row" key={project.name} onClick={() => openProject(project)} onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openProject(project); } }} tabIndex={0} role="button" aria-label={`Open ${project.name} project details`} data-testid={`card-project-${project.name.toLowerCase().replace(/\s/g, '-')}`}>
                 <span className="project-no">SCROLL 0{index + 1}</span>
                 <div><div className="project-name">{project.name}</div><div className="project-sub">{project.subtitle}</div></div>
                 <p className="project-summary">{project.description}</p>
@@ -332,11 +309,12 @@ function Site() {
             ))}
           </div>
           <p className="work-note">Select a scroll to read the project details · links open in a new tab.</p>
-        </div>
+        </StoryReveal>
       </section>
 
       <section className="chapter experience" id="experience" data-scene="experience">
-        <div className="chapter-inner">
+        <ChapterBackdrop kind="ascent" reducedMotion={Boolean(reduceMotion)} />
+        <StoryReveal className="chapter-inner">
           <div className="chapter-no">Chapter 04 — The journey</div>
           <h2>Growth is built<br />one step at a time.</h2>
           <p className="chapter-intro">Responsibility, collaboration, and consistent execution — the climb is made of small contributions.</p>
@@ -354,11 +332,12 @@ function Site() {
               <p className="timeline-detail">Manages open-source contributions, reviews issues and pull requests, maintains contributor workflow quality, and supports code quality within an active open-source codebase.</p>
             </article>
           </div>
-        </div>
+        </StoryReveal>
       </section>
 
       <section className="chapter wisdom" id="wisdom" data-scene="wisdom" aria-label="Engineering philosophy">
-        <div className="chapter-inner">
+        <ChapterBackdrop kind="peach" reducedMotion={Boolean(reduceMotion)} />
+        <StoryReveal className="chapter-inner">
           <div className="chapter-no">A pause beneath the peach tree</div>
           <h2>Inner peace.<br />Outer innovation.</h2>
           <p className="wisdom-quote">I believe the best engineering begins with curiosity, grows through experimentation, and becomes meaningful when it solves real problems.</p>
@@ -367,11 +346,12 @@ function Site() {
             <article className="principle"><span>02 / INTENT</span><h3>Build With Purpose</h3><p>Create practical software that solves real problems.</p></article>
             <article className="principle"><span>03 / PRACTICE</span><h3>Improve Through Practice</h3><p>Use experimentation, feedback, and iteration to develop better solutions.</p></article>
           </div>
-        </div>
+        </StoryReveal>
       </section>
 
       <section className="chapter challenge" id="challenge" data-scene="challenge" aria-label="Engineering approach">
-        <div className="chapter-inner">
+        <ChapterBackdrop kind="challenge" reducedMotion={Boolean(reduceMotion)} />
+        <StoryReveal className="chapter-inner">
           <div className="chapter-no">The challenges · a way through</div>
           <h2>Every challenge<br />has a way through.</h2>
           <p className="chapter-intro">The story is never about the obstacle alone. It is about understanding the problem, choosing an approach, and making something that works.</p>
@@ -381,11 +361,12 @@ function Site() {
             <article className="challenge-step"><span>STAGE 03</span><h3>The Outcome</h3><p>Explore the actual applications and repositories. Each project detail includes its verified description, technologies, and available link.</p></article>
           </div>
           <a className="button light" href="#projects" style={{ marginTop: 35 }}>Explore the project scrolls <ArrowRight size={14} /></a>
-        </div>
+        </StoryReveal>
       </section>
 
       <section className="chapter education" id="education" data-scene="education" aria-label="Education and achievements">
-        <div className="chapter-inner">
+        <ChapterBackdrop kind="education" reducedMotion={Boolean(reduceMotion)} />
+        <StoryReveal className="chapter-inner">
           <div className="chapter-no">The archive · learning in progress</div>
           <h2>A foundation for<br />what comes next.</h2>
           <div className="edu-grid">
@@ -394,11 +375,12 @@ function Site() {
             <article className="edu-card"><span className="label">Open source · GSSoC</span><h3>Community and code</h3><p>Mentor · Project Admin · Contributor · Ambassador</p></article>
             <article className="edu-card"><span className="label">The next chapter</span><h3>Keep building.</h3><p>Learning and making useful software, one iteration at a time.</p></article>
           </div>
-        </div>
+        </StoryReveal>
       </section>
 
       <section className="chapter contact" id="contact" data-scene="contact">
-        <div className="chapter-inner">
+        <ChapterBackdrop kind="festival" reducedMotion={Boolean(reduceMotion)} />
+        <StoryReveal className="chapter-inner">
           <div className="chapter-no">Final chapter — The lantern festival</div>
           <h2>Every great journey<br />starts with a conversation.</h2>
           <p className="chapter-intro">Have an interesting problem, an ambitious idea, or a project worth building? Let's create something meaningful together.</p>
@@ -422,7 +404,7 @@ function Site() {
               <button className="button light" type="submit" data-testid="button-send-message">Prepare email <ArrowUpRight size={14} /></button>
             </form>
           </div>
-        </div>
+        </StoryReveal>
       </section>
       <footer className="footer"><span>© {new Date().getFullYear()} CHETAN RANGARI · CHETAN0E</span><a href="#home">BACK TO THE VALLEY ↑</a></footer>
 

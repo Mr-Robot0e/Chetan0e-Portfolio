@@ -529,10 +529,9 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'DM 
 .nav-links a:hover:after,.nav-links a.active:after { transform:scaleX(1); }
 .menu-toggle { display:none; border:1px solid currentColor; background:transparent; color:inherit; border-radius:50%; width:42px;height:42px; }
 .hero { min-height: min(900px, 100svh); min-height: max(730px, 100svh); position:relative; isolation:isolate; display:flex; align-items:center; overflow:hidden; background:#cbd4c4; }
-.hero-art { position:absolute; inset:0; z-index:-3; background-image:linear-gradient(90deg,rgba(235,235,220,.96) 0%,rgba(235,235,220,.84) 34%,rgba(235,235,220,.17) 69%,rgba(20,35,27,.12) 100%),url('./assets/valley-dawn.jpg'); background-size:cover; background-position:center 57%; transform:translate3d(calc(var(--tilt-x,0px)*.22),calc(var(--tilt-y,0px)*.18),0) scale(1.035); animation:scene-arrive 1.4s both; transition:transform .45s cubic-bezier(.2,.7,.2,1); }
+.hero-art { position:absolute; inset:0; z-index:-3; background-image:linear-gradient(90deg,rgba(235,235,220,.96) 0%,rgba(235,235,220,.84) 34%,rgba(235,235,220,.17) 69%,rgba(20,35,27,.12) 100%),url('/media/valley-hero.jpg'),url('./assets/valley-dawn.jpg'); background-size:cover; background-position:center 57%; transform:translate3d(calc(var(--tilt-x,0px)*.22),calc(var(--tilt-y,0px)*.18),0) scale(1.035); animation:scene-arrive 1.4s both; transition:transform .45s cubic-bezier(.2,.7,.2,1); }
 .hero-art:before { content:''; position:absolute; inset:28% -2% -3%; background:url('./assets/valley-dawn.jpg') center 80% / 115% auto no-repeat; opacity:.34; mix-blend-mode:multiply; mask-image:linear-gradient(to bottom,transparent 0%,#000 35%,#000 100%); transform:translate3d(calc(var(--tilt-x,0px)*-.35),calc(var(--tilt-y,0px)*-.3),0) scale(1.02); }
-.hero-panda { position:absolute; z-index:1; right:clamp(24px,8vw,126px); bottom:3.5%; width:min(40vw,530px); height:min(78vh,700px); min-height:440px; pointer-events:auto; filter:drop-shadow(0 22px 28px rgba(25,39,31,.22)); }
-.hero-panda canvas { display:block; width:100%!important; height:100%!important; }
+.hero-video { position:absolute; inset:0; z-index:-2; width:100%; height:100%; object-fit:cover; object-position:center 55%; filter:saturate(.82) contrast(.98); }
 .hero-foreground { position:absolute; z-index:1; pointer-events:none; inset:auto 0 -4px; height:min(44vh,430px); transform:translate3d(calc(var(--tilt-x,0px)*-.55),calc(var(--tilt-y,0px)*-.35),0); transition:transform .6s cubic-bezier(.2,.7,.2,1); }
 .hero-foreground svg { width:100%; height:100%; overflow:visible; filter:drop-shadow(0 10px 9px rgba(19,34,25,.15)); }
 .hero:after { content:''; position:absolute; inset:auto 0 0; height:30%; z-index:-1; background:linear-gradient(transparent,rgba(29,49,37,.26)); pointer-events:none; }
@@ -681,8 +680,8 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'DM 
   .nav-links a { padding:14px 0;border-bottom:1px solid #233e321a; }
   .menu-toggle { display:grid;place-items:center; }
   .hero { min-height:850px;min-height:100svh;align-items:flex-start; }
-  .hero-art { background-image:linear-gradient(180deg,rgba(231,233,219,.94) 0%,rgba(231,233,219,.82) 42%,rgba(231,233,219,.05) 78%,rgba(20,35,27,.45) 100%),url('./assets/valley-dawn.jpg');background-position:63% center; }
-  .hero-panda { width:min(62vw,350px); height:min(46vh,420px); min-height:285px; right:1vw; bottom:7%; opacity:.98; }
+  .hero-art { background-image:linear-gradient(180deg,rgba(231,233,219,.94) 0%,rgba(231,233,219,.82) 42%,rgba(231,233,219,.05) 78%,rgba(20,35,27,.45) 100%),url('/media/valley-hero.jpg'),url('./assets/valley-dawn.jpg');background-position:63% center; }
+  .hero-video { object-position:62% center; }
   .hero-foreground { height:30vh; }
   .hero-inner { padding-top:150px; }
   .hero h1 { font-size:clamp(55px,12vw,86px); }
@@ -707,7 +706,6 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'DM 
   .hero { min-height:810px; }
   .hero h1 { font-size:54px; }
   .hero-inner { padding-inline:22px; }
-  .hero-panda { width:min(60vw,285px);height:min(38vh,340px);min-height:245px;right:0;bottom:8%; }
   .chapter { padding:82px 23px; }
   .skill-explorer { grid-template-columns:1fr; }
   .skill-tabs { display:grid;grid-template-columns:1fr 1fr;border-right:0; }
@@ -721,93 +719,143 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'DM 
   .footer { flex-direction:column;align-items:flex-start; }
 }
 
-/* One persistent Three.js viewport carries the environment between chapters. */
-.portfolio { isolation:isolate; }
-.journey-world {
-  position:fixed;
-  z-index:1;
-  top:0;
-  right:0;
-  width:60vw;
-  height:100vh;
-  height:100svh;
-  pointer-events:auto;
-  opacity:.98;
-  transition:opacity .5s ease;
-}
-.journey-world canvas { display:block; width:100%!important; height:100%!important; pointer-events:auto; }
-.chapter {
-  z-index:2;
-  min-height:78svh;
-  pointer-events:none;
-  background:linear-gradient(90deg,rgba(229,229,216,.99) 0%,rgba(229,229,216,.96) 39%,rgba(229,229,216,.8) 55%,rgba(229,229,216,.12) 100%);
-}
-.chapter-inner {
-  width:min(760px,56vw);
-  max-width:none;
-  margin:0 0 0 clamp(24px,8vw,120px);
-  position:relative;
-  z-index:2;
-  pointer-events:none;
-}
-.chapter-inner :is(p,h1,h2,h3,li,span) { pointer-events:auto; }
-.chapter-inner :is(a,button,input,textarea,select,[role=button],[role=tab]) { pointer-events:auto; }
-.about { background:linear-gradient(90deg,rgba(229,229,216,.99) 0%,rgba(229,229,216,.96) 38%,rgba(229,229,216,.78) 54%,rgba(229,229,216,.05) 100%); }
+/* Film-like illustration layers, scroll reveals and environmental transitions. */
+.hero:before { content:''; position:absolute; inset:0; z-index:-1; pointer-events:none; background:linear-gradient(90deg,rgba(236,237,222,.91) 0%,rgba(236,237,222,.76) 33%,rgba(236,237,222,.13) 67%,rgba(19,32,25,.18) 100%); }
+.hero-video { opacity:.94; }
+.hero-video[poster] { background:#cbd4c4; }
+.chapter { position:relative; isolation:isolate; overflow:hidden; min-height:78svh; padding:clamp(90px,11vw,154px) clamp(22px,8vw,120px); }
+.chapter:before { content:''; position:absolute; inset:0; z-index:-1; pointer-events:none; background:linear-gradient(90deg,var(--scene-wash) 0%,var(--scene-wash) 43%,color-mix(in srgb,var(--scene-wash) 76%,transparent) 54%,transparent 72%); }
+.chapter-inner { width:min(700px,48vw); max-width:none; margin:0; position:relative; z-index:2; }
+.chapter-world { position:absolute; z-index:0; top:0; right:-3vw; width:min(70vw,1060px); height:100%; overflow:hidden; pointer-events:none; opacity:.92; mask-image:linear-gradient(90deg,transparent 0%,#000 21%,#000 100%); }
+.chapter-world svg { display:block; width:100%; height:100%; overflow:visible; }
+.chapter-world-far { position:absolute; inset:-4% -2% -5% 0; }
+.chapter-world-near { position:absolute; inset:5% -5% -8% 1%; opacity:.62; }
+.chapter-world-near svg { filter:drop-shadow(0 18px 18px rgba(30,39,28,.13)); }
+.chapter-atmosphere { position:absolute; inset:0; opacity:.33; background:radial-gradient(ellipse at 75% 45%,transparent 16%,rgba(255,255,255,.18) 56%,transparent 79%); pointer-events:none; }
+.chapter-no { position:relative; }
+.chapter h2 { max-width:690px; text-wrap:balance; }
+.about { --scene-wash:rgba(231,231,217,.97); }
+.skills { --scene-wash:rgba(24,39,31,.97); }
+.disciplines { --scene-wash:rgba(207,217,202,.96); }
+.projects { --scene-wash:rgba(31,41,35,.97); }
+.experience { --scene-wash:rgba(232,226,211,.97); }
+.wisdom { --scene-wash:rgba(204,214,199,.96); }
+.challenge { --scene-wash:rgba(37,48,41,.97); }
+.education { --scene-wash:rgba(240,236,224,.97); }
+.contact { --scene-wash:rgba(23,38,30,.97); }
+.skills,.projects,.challenge,.contact { color:#f7f2e8; }
+.skills .chapter-intro,.projects .chapter-intro,.challenge .chapter-intro,.contact .chapter-intro { color:#c9d2c5; }
+.skills .chapter-no,.projects .chapter-no,.challenge .chapter-no,.contact .chapter-no { color:#e0be71; }
+.chapter-world-village { filter:saturate(.83); }
+.chapter-world-training { filter:saturate(.9); }
+.chapter-world-archive { opacity:.84; }
+.chapter-world-ascent { filter:saturate(.74); }
+.chapter-world-peach { filter:saturate(.8); }
+.chapter-world-challenge { filter:saturate(.72); }
+.chapter-world-festival { opacity:.93; filter:saturate(1.1); }
+.art-houses { filter:drop-shadow(0 9px 8px rgba(45,40,30,.13)); }
+.art-bamboo { transform-origin:center bottom; animation:bamboo-breathe 7s ease-in-out infinite alternate; }
+.art-station,.discipline-seal { transform-box:fill-box; transform-origin:center; transition:transform .55s cubic-bezier(.2,.7,.2,1); }
+.art-station.active { transform:translateY(-10px); }
+.discipline-seal:nth-child(odd) { animation:stone-hover 5s ease-in-out infinite alternate; }
+.scroll-glow { filter:drop-shadow(0 0 12px rgba(217,180,94,.32)); animation:scroll-light 4s ease-in-out infinite alternate; }
+.ascent-seals { animation:seal-glimmer 4s ease-in-out infinite alternate; }
+.peach-canopy { transform-origin:420px 240px; animation:canopy-sway 8s ease-in-out infinite alternate; }
+.blossom-drift { animation:petal-drift 13s ease-in-out infinite alternate; }
+.lantern-drift { transform-origin:400px 130px; animation:lantern-sway 6s ease-in-out infinite alternate; }
+.festival-reflections { animation:river-glint 5s ease-in-out infinite alternate; }
+.chapter-inner .facts,.chapter-inner .about-aside { pointer-events:auto; }
 .about-layout { grid-template-columns:1fr; }
-.about-aside { max-width:600px; margin-top:25px; background:linear-gradient(90deg,rgba(229,229,216,.62),transparent); }
-.skills { background:linear-gradient(90deg,rgba(25,39,31,.99) 0%,rgba(25,39,31,.97) 39%,rgba(25,39,31,.82) 55%,rgba(25,39,31,.08) 100%); }
-.skills:before { pointer-events:none; }
-.disciplines { background:linear-gradient(90deg,rgba(203,212,196,.99) 0%,rgba(203,212,196,.96) 38%,rgba(203,212,196,.78) 56%,rgba(203,212,196,.04) 100%); }
-.disciplines .chapter-inner { width:min(760px,56vw); }
-.discipline-row { grid-template-columns:repeat(3,1fr); background:rgba(203,212,196,.52); }
+.about-aside { max-width:590px; margin-top:28px; background:linear-gradient(90deg,rgba(231,231,217,.62),transparent); }
+.skill-explorer { background:linear-gradient(100deg,rgba(17,31,23,.62),rgba(17,31,23,.1)); }
+.discipline-row { grid-template-columns:repeat(3,1fr); background:rgba(203,212,196,.26); }
 .discipline { min-height:120px; }
 .discipline:nth-child(3) { border-right:0; }
 .discipline:nth-child(4),.discipline:nth-child(5) { border-bottom:0; }
-.projects { background:linear-gradient(90deg,rgba(32,42,36,.99) 0%,rgba(32,42,36,.97) 40%,rgba(32,42,36,.84) 57%,rgba(32,42,36,.1) 100%); }
-.projects:before { pointer-events:none; }
-.project-list { background:linear-gradient(90deg,rgba(32,42,36,.34),rgba(32,42,36,.02)); }
-.project-row { grid-template-columns:74px minmax(165px,.9fr) minmax(190px,1.1fr) 42px; }
-.experience { background:linear-gradient(90deg,rgba(232,226,211,.99) 0%,rgba(232,226,211,.96) 39%,rgba(232,226,211,.78) 56%,rgba(232,226,211,.05) 100%); }
+.project-list { background:linear-gradient(100deg,rgba(23,34,27,.45),rgba(23,34,27,.05)); }
+.project-row { grid-template-columns:74px minmax(165px,.9fr) minmax(180px,1.1fr) 42px; }
+.project-row:hover { background:rgba(247,242,232,.08); }
 .timeline-item { transition:transform .3s ease; }
 .timeline-item.selected { transform:translateX(8px); }
 .timeline-item.selected:before { width:15px;height:15px;left:-41px;top:4px;background:var(--gold); }
-.timeline-button { pointer-events:auto; }
-.wisdom { background:linear-gradient(90deg,rgba(203,212,196,.98) 0%,rgba(203,212,196,.93) 40%,rgba(203,212,196,.68) 58%,rgba(203,212,196,.04) 100%); }
-.wisdom:after { pointer-events:none; }
-.wisdom-quote { background:linear-gradient(90deg,rgba(203,212,196,.56),transparent); }
-.challenge { background:linear-gradient(90deg,rgba(41,51,44,.99) 0%,rgba(41,51,44,.97) 39%,rgba(41,51,44,.78) 57%,rgba(41,51,44,.08) 100%); }
-.challenge:before { pointer-events:none; }
-.challenge-flow { background:linear-gradient(90deg,rgba(41,51,44,.38),transparent); }
-.education { background:linear-gradient(90deg,rgba(240,236,224,.99) 0%,rgba(240,236,224,.96) 39%,rgba(240,236,224,.8) 56%,rgba(240,236,224,.06) 100%); }
+.wisdom:after { z-index:-1; }
+.wisdom-quote { max-width:650px; background:linear-gradient(90deg,rgba(204,214,199,.56),transparent); }
+.principles { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.challenge-flow { background:linear-gradient(100deg,rgba(24,35,28,.5),transparent); }
 .edu-grid { background:transparent;border:0;gap:0; }
-.edu-card { background:rgba(240,236,224,.7); border-top:1px solid rgba(119,122,112,.55); }
-.contact { background:linear-gradient(90deg,rgba(25,39,31,.99) 0%,rgba(25,39,31,.96) 39%,rgba(25,39,31,.8) 57%,rgba(25,39,31,.12) 100%); }
-.contact:before { pointer-events:none; }
-.contact-layout { grid-template-columns:1fr 1fr; gap:35px; }
+.edu-card { background:transparent;border:0;border-top:1px solid rgba(119,122,112,.55);padding:24px 20px 24px 0; }
+.contact-layout { grid-template-columns:1fr 1fr;gap:35px; }
+.contact:before { z-index:-1; }
 .footer { position:relative;z-index:2; }
+.story-dust { position:absolute; inset:0; pointer-events:none; overflow:hidden; }
+.story-dust span { position:absolute; width:4px;height:4px;border-radius:50%;background:#e6c679;opacity:.55;animation:dust-drift 12s ease-in-out infinite alternate; }
+.story-dust span:nth-child(1) { left:12%;top:20%;animation-delay:-3s; }
+.story-dust span:nth-child(2) { left:43%;top:58%;animation-delay:-7s; }
+.story-dust span:nth-child(3) { left:71%;top:31%;animation-delay:-5s; }
+.story-dust span:nth-child(4) { left:89%;top:73%;animation-delay:-1s; }
+@keyframes bamboo-breathe { from { transform:translateX(-4px) skewX(-.4deg) } to { transform:translateX(4px) skewX(.5deg) } }
+@keyframes stone-hover { from { translate:0 0 } to { translate:0 -7px } }
+@keyframes scroll-light { from { opacity:.72 } to { opacity:1 } }
+@keyframes seal-glimmer { from { opacity:.68 } to { opacity:1 } }
+@keyframes canopy-sway { from { transform:rotate(-.7deg) } to { transform:rotate(.8deg) } }
+@keyframes petal-drift { from { transform:translate3d(-4px,-5px,0) } to { transform:translate3d(10px,18px,0) } }
+@keyframes lantern-sway { from { transform:rotate(-1deg) } to { transform:rotate(1.1deg) } }
+@keyframes river-glint { from { opacity:.25;transform:translateX(-4px) } to { opacity:.66;transform:translateX(4px) } }
+@keyframes dust-drift { from { transform:translate3d(0,0,0);opacity:.22 } to { transform:translate3d(12px,-20px,0);opacity:.72 } }
 
 @media (max-width:900px) {
-  .journey-world { width:56vw; }
-  .chapter-inner { width:min(700px,58vw); margin-left:6vw; }
+  .chapter-inner { width:min(640px,55vw); }
+  .chapter { padding-left:6vw;padding-right:6vw; }
+  .chapter-world { width:67vw;right:-4vw; }
   .project-row { grid-template-columns:56px 1fr 38px;gap:13px; }
   .project-summary { grid-column:2/3; }
   .project-open { grid-column:3;grid-row:1 / span 2; }
-  .contact-layout { grid-template-columns:1fr; }
+  .contact-layout { grid-template-columns:1fr;gap:28px; }
 }
 @media (max-width:700px) {
-  .journey-world { width:100vw;height:48svh;top:auto;bottom:0;opacity:.7; }
-  .chapter { min-height:80svh; background:rgba(229,229,216,.88);padding:82px 23px; }
-  .chapter-inner,.disciplines .chapter-inner { width:100%; margin:0; }
-  .about,.disciplines,.experience,.wisdom,.education { background:rgba(229,229,216,.89); }
-  .skills,.projects,.challenge,.contact { background:rgba(25,39,31,.91); }
+  .hero-art { background-image:linear-gradient(180deg,rgba(231,233,219,.94) 0%,rgba(231,233,219,.82) 42%,rgba(231,233,219,.05) 78%,rgba(20,35,27,.45) 100%),url('/media/valley-hero.jpg'),url('./assets/valley-dawn.jpg');background-position:63% center; }
+  .hero-video { object-position:62% center; }
+  .hero-inner { padding-top:142px; }
+  .hero h1 { font-size:clamp(52px,12vw,76px); }
+  .chapter { min-height:0;padding:90px 24px 110px; }
+  .chapter-inner { width:100%; }
+  .chapter-world { width:100%;height:66%;top:auto;bottom:0;right:0;opacity:.46;mask-image:linear-gradient(180deg,transparent 0%,#000 24%,#000 100%); }
+  .chapter-world-far { inset:0; }
+  .chapter-world-near { inset:6% -4% -6%; }
+  .about:before,.disciplines:before,.experience:before,.wisdom:before,.education:before { background:linear-gradient(180deg,var(--scene-wash) 0%,color-mix(in srgb,var(--scene-wash) 97%,transparent) 56%,color-mix(in srgb,var(--scene-wash) 78%,transparent) 100%); }
+  .skills:before,.projects:before,.challenge:before,.contact:before { background:linear-gradient(180deg,var(--scene-wash) 0%,color-mix(in srgb,var(--scene-wash) 97%,transparent) 56%,color-mix(in srgb,var(--scene-wash) 80%,transparent) 100%); }
   .about-layout { grid-template-columns:1fr; }
+  .chapter-world-near { opacity:.42; }
+  .discipline-row { grid-template-columns:1fr 1fr; }
+  .discipline:nth-child(2n) { border-right:0; }
+  .discipline:nth-child(3) { border-right:1px solid #9eaf9d; }
+  .discipline:nth-child(4) { border-bottom:1px solid #9eaf9d; }
+  .discipline:last-child { grid-column:span 2; }
   .project-row { grid-template-columns:48px 1fr 38px; }
   .project-summary { grid-column:2/3; }
   .project-open { grid-column:3;grid-row:1 / span 2; }
   .contact-layout { grid-template-columns:1fr; }
-  .edu-card { background:rgba(240,236,224,.78); }
+  .edu-grid { grid-template-columns:1fr; }
+  .principles { grid-template-columns:1fr;gap:15px; }
+  .principle { border-bottom:1px solid #93a791;padding-bottom:15px; }
+  .challenge-flow { grid-template-columns:1fr; }
+  .challenge-step,.challenge-step + .challenge-step { border-left:0;border-bottom:1px solid rgba(247,242,232,.2);padding:20px 0; }
+}
+@media (max-width:520px) {
+  .hero-video { object-position:67% center; }
+  .chapter h2 { font-size:clamp(38px,11vw,56px); }
+  .skill-explorer { grid-template-columns:1fr; }
+  .skill-tabs { display:grid;grid-template-columns:1fr 1fr;border-right:0; }
+  .skill-tab { border-right:1px solid rgba(247,242,232,.15);font-size:9px; }
+  .skill-readout { padding:26px 4px; }
+  .discipline-row { grid-template-columns:1fr 1fr; }
+  .edu-grid { grid-template-columns:1fr; }
+  .modal-list { grid-template-columns:1fr; }
+  .footer { flex-direction:column;align-items:flex-start; }
 }
 @media (prefers-reduced-motion:reduce) {
-  .journey-world { transition:none; }
+  .hero-video { display:none; }
+  .chapter-world-far,.chapter-world-near { transform:none!important; }
+  .art-bamboo,.art-station,.discipline-seal,.scroll-glow,.ascent-seals,.peach-canopy,.blossom-drift,.lantern-drift,.festival-reflections,.story-dust span { animation:none!important; }
   .timeline-item.selected { transform:none; }
 }
